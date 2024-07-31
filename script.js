@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () =>{
     const registerForm = document.getElementById('register-form');
 
-    registerForm.addEventListener('submit', async (event) =>{
-        event.preventDefault();
+    registerForm.addEventListener('submit', async (e) =>{
+        e.preventDefault();
 
 //capture form data
         const formData = new FormData(registerForm); 

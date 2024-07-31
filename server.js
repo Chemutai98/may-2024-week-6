@@ -36,7 +36,7 @@ connection.connect((err) => {
 });
 
 // Define route to registration form
-app.get('/register', (request, response) => {
+app.get('/registration', (request, response) => {
     response.sendFile(path.join(__dirname, 'register.html'));
 });
 
@@ -44,18 +44,10 @@ app.get('/register', (request, response) => {
 const User = {
     tableName: 'users',
     createUser: function (newUser, callback) {
-            connection.query('INSERT INTO ' + this.tableName + ' SET ?', newUser, )
-           
-    
-
-    },
+            connection.query('INSERT INTO ' + this.tableName + ' SET ?', newUser, )},
     
     getUserByEmail: function (email, callback) {
-            connection.query('SELECT * FROM ' + this.tableName + ' WHERE email = ?',)
-
-            
-    
-    },
+            connection.query('SELECT * FROM ' + this.tableName + ' WHERE email = ?',)},
 
     getUserByUsername: function (username, callback) {
         connection.query('SELECT * FROM ' + this.tableName + ' WHERE username = ?',)
