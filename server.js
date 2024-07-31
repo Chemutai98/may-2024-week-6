@@ -43,29 +43,23 @@ app.get('/register', (request, response) => {
 // Define a User object - registration
 const User = {
     tableName: 'users',
-    createUser: function (newUser) {
-        return new Promise((resolve, reject) => {
-            connection.query('INSERT INTO ' + this.tableName + ' SET ?', newUser, (error, results) => {
-                if (error) reject(error);
-                resolve(results);
-            });
-        });
+    createUser: function (newUser, callback) {
+            connection.query('INSERT INTO ' + this.tableName + ' SET ?', newUser, )
+           
+    
+
     },
-    getUserByEmail: function (email) {
-        return new Promise((resolve, reject) => {
-            connection.query('SELECT * FROM ' + this.tableName + ' WHERE email = ?', [email], (error, results) => {
-                if (error) reject(error);
-                resolve(results);
-            });
-        });
+    
+    getUserByEmail: function (email, callback) {
+            connection.query('SELECT * FROM ' + this.tableName + ' WHERE email = ?',)
+
+            
+    
     },
-    getUserByUsername: function (username) {
-        return new Promise((resolve, reject) => {
-            connection.query('SELECT * FROM ' + this.tableName + ' WHERE username = ?', [username], (error, results) => {
-                if (error) reject(error);
-                resolve(results);
-            });
-        });
+
+    getUserByUsername: function (username, callback) {
+        connection.query('SELECT * FROM ' + this.tableName + ' WHERE username = ?',)
+
     },
 };
 
