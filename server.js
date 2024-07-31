@@ -99,15 +99,17 @@ app.post('/register', [
     };
 
     // Save new user in db
-    try {
-        await User.createUser(newUser);
-        console.log('New user record saved!');
-        response.status(201).send('Registration successful');
-    } catch (error) {
-        console.error('An error occurred while saving the record: ' + error.message);
-        response.status(500).json({ error: error.message });
-    }
+    User.createUser(newUser, ( error, results) => {
+        if(error){
+            console.error('An error occurred while saving the record: ' + error.message);
+            response.status(500).json({ errors: error.message });
+}
+         console.log('New user record saved!');
+        response.status(201).send('New user created sucessfully');
+     
 });
+});
+
 //handle the login logic - authentication
  app.post('/api/user/login', (request, response) => {
      const { username, password } = request.body;
