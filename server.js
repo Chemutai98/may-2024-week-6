@@ -45,7 +45,7 @@ const User = {
     tableName: 'users',
     createUser: function (newUser) {
         return new Promise((resolve, reject) => {
-            db.query('INSERT INTO ' + this.tableName + ' SET ?', newUser, (error, results) => {
+            connection.query('INSERT INTO ' + this.tableName + ' SET ?', newUser, (error, results) => {
                 if (error) reject(error);
                 resolve(results);
             });
@@ -53,7 +53,7 @@ const User = {
     },
     getUserByEmail: function (email) {
         return new Promise((resolve, reject) => {
-            db.query('SELECT * FROM ' + this.tableName + ' WHERE email = ?', [email], (error, results) => {
+            connection.query('SELECT * FROM ' + this.tableName + ' WHERE email = ?', [email], (error, results) => {
                 if (error) reject(error);
                 resolve(results);
             });
@@ -61,7 +61,7 @@ const User = {
     },
     getUserByUsername: function (username) {
         return new Promise((resolve, reject) => {
-            db.query('SELECT * FROM ' + this.tableName + ' WHERE username = ?', [username], (error, results) => {
+            connection.query('SELECT * FROM ' + this.tableName + ' WHERE username = ?', [username], (error, results) => {
                 if (error) reject(error);
                 resolve(results);
             });
